@@ -1,0 +1,92 @@
+#preloader {
+    position: fixed;
+    inset: 0;
+    background: #fffaf0; /* Warm cream background */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-in-out;
+    overflow: hidden;
+}
+
+/* Soft pink craft dots instead of the tech grid */
+#preloader::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(#ffb8b8 1.5px, transparent 1.5px);
+    background-size: 30px 30px;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.preloader-content {
+    position: relative; 
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    z-index: 10;
+    animation: simplePulse 2s infinite ease-in-out;
+}
+
+/* Matching the Header Logo Style */
+.preloader-logo h3 {
+    font-family: "Outfit", sans-serif;
+    font-size: 32px; /* Slightly larger for the center screen */
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ff6b6b; /* Coral Pink */
+    line-height: 1.2;
+    margin: 0;
+}
+
+.preloader-logo h3 span {
+    font-weight: 400;
+    color: #475569;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+/* Playful loading text */
+.loading-status h3 {
+    font-family: 'Kalam', cursive;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: #ff6b6b;
+    margin-bottom: 15px;
+}
+
+/* Rounded, crafty progress bar */
+.progress-container {
+    width: 220px;
+    height: 6px;
+    background: #ffeaa7; /* Soft yellow track */
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill {
+    position: absolute;
+    height: 100%;
+    width: 0;
+    background: #ff6b6b; /* Coral Pink fill */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.4);
+    transition: width 0.1s linear; 
+    will-change: width;
+}
+
+@keyframes simplePulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(0.98); opacity: 0.8; }
+}
+
+.preloader-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
